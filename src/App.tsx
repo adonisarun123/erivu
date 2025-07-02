@@ -1,497 +1,363 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
-  ArrowRight, 
+  Search, 
+  User, 
   ShoppingCart, 
-  Star, 
-  Award, 
-  Leaf, 
-  MapPin, 
-  Users, 
+  Play,
   Heart,
-  Mail,
-  Phone,
-  Instagram,
-  Linkedin,
-  Menu,
-  X,
-  CheckCircle,
-  Truck,
   Shield,
-  Crown
+  Users,
+  Heart as HeartSolid,
+  MapPin,
+  Send
 } from "lucide-react";
 import { useState } from "react";
 
-export default function Home() {
+export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const products = [
     {
-      name: "Cardamom (Elaichi)",
-      description: "Premium GI-tagged cardamom from Idukki hills",
-      price: "₹899",
-      originalPrice: "₹1,199",
-      rating: 4.9,
-      image: "🌿",
-      badge: "Best Seller"
+      id: 1,
+      name: "Malabar Black Pepper",
+      description: "The \"Black Gold\" of Kerala, known for its bold flavor and aromatic intensity",
+      price: "₹850",
+      image: "/kerala-spices-1.jpg",
+      badge: "GI Tagged",
+      badgeColor: "bg-red-500"
     },
     {
-      name: "Black Pepper (Kurumulaku)",
-      description: "Authentic Malabar black pepper, the king of spices",
-      price: "₹599",
-      originalPrice: "₹799",
-      rating: 4.8,
-      image: "⚫",
-      badge: "Premium"
+      id: 2,
+      name: "Alleppey Green Cardamom",
+      description: "Premium grade cardamom with intense aroma and sweet flavor notes",
+      price: "₹1,200",
+      image: "/kerala-spices-1.jpg",
+      badge: "Queen of Spices",
+      badgeColor: "bg-green-500"
     },
     {
-      name: "Cinnamon (Karugapatta)",
-      description: "True Ceylon cinnamon from Western Ghats",
-      price: "₹449",
-      originalPrice: "₹599",
-      rating: 4.9,
-      image: "🟤",
-      badge: "Organic"
-    },
-    {
-      name: "Nutmeg (Jathikka)",
-      description: "Hand-picked nutmeg with rich aroma",
-      price: "₹799",
-      originalPrice: "₹999",
-      rating: 4.7,
-      image: "🟫",
-      badge: "Rare"
-    }
-  ];
-
-  const features = [
-    {
-      icon: Award,
-      title: "GI Certified",
-      description: "Every spice comes with Geographical Indication certification"
-    },
-    {
-      icon: Leaf,
-      title: "100% Natural",
-      description: "No artificial colors, preservatives, or additives"
-    },
-    {
-      icon: Users,
-      title: "Farm Direct",
-      description: "Sourced directly from certified Kerala farmers"
-    },
-    {
-      icon: Truck,
-      title: "Fresh Delivery",
-      description: "Packaged fresh and delivered within 3-5 days"
+      id: 3,
+      name: "Kerala Golden Turmeric",
+      description: "Pure, high-curcumin turmeric with vibrant color and earthy flavor",
+      price: "₹450",
+      image: "/kerala-spices-1.jpg",
+      badge: "Golden Spice",
+      badgeColor: "bg-yellow-500"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-b from-orange-50/30 to-white">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b">
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <div className="text-2xl font-serif font-bold spice-text">Erivu</div>
-              <Badge variant="secondary" className="hidden sm:inline-flex">GI Certified</Badge>
+      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-sm">E</span>
+              </div>
+              <span className="text-2xl font-serif font-bold text-gray-900">Erivu</span>
+              <Badge className="bg-green-500 text-white text-xs px-2 py-1">
+                GI Tagged
+              </Badge>
             </div>
-            
+
+            {/* Navigation Links */}
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#home" className="text-foreground hover:text-primary transition-colors">Home</a>
-              <a href="#shop" className="text-foreground hover:text-primary transition-colors">Shop</a>
-              <a href="#story" className="text-foreground hover:text-primary transition-colors">Our Story</a>
-              <a href="#quality" className="text-foreground hover:text-primary transition-colors">Quality</a>
-              <a href="#contact" className="text-foreground hover:text-primary transition-colors">Contact</a>
+              <a href="#spices" className="text-gray-700 hover:text-gray-900 font-medium">Our Spices</a>
+              <a href="#stories" className="text-gray-700 hover:text-gray-900 font-medium">Stories</a>
+              <a href="#about" className="text-gray-700 hover:text-gray-900 font-medium">About</a>
+              <a href="#contact" className="text-gray-700 hover:text-gray-900 font-medium">Contact</a>
             </div>
-            
+
+            {/* Right side icons */}
             <div className="flex items-center space-x-4">
-              <Button variant="outline" size="sm" className="hidden sm:flex">
+              <Search className="w-5 h-5 text-gray-600 cursor-pointer hover:text-gray-900" />
+              <User className="w-5 h-5 text-gray-600 cursor-pointer hover:text-gray-900" />
+              <Button className="bg-red-500 hover:bg-red-600 text-white px-6">
                 <ShoppingCart className="w-4 h-4 mr-2" />
-                Cart (0)
-              </Button>
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                className="md:hidden"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                Shop Now
               </Button>
             </div>
           </div>
-          
-          {/* Mobile Menu */}
-          {isMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 border-t pt-4">
-              <div className="flex flex-col space-y-4">
-                <a href="#home" className="text-foreground hover:text-primary transition-colors">Home</a>
-                <a href="#shop" className="text-foreground hover:text-primary transition-colors">Shop</a>
-                <a href="#story" className="text-foreground hover:text-primary transition-colors">Our Story</a>
-                <a href="#quality" className="text-foreground hover:text-primary transition-colors">Quality</a>
-                <a href="#contact" className="text-foreground hover:text-primary transition-colors">Contact</a>
-                <Button variant="outline" size="sm" className="w-fit">
-                  <ShoppingCart className="w-4 h-4 mr-2" />
-                  Cart (0)
-                </Button>
-              </div>
-            </div>
-          )}
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative py-20 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 hero-pattern opacity-5"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-accent/10"></div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8 fade-in-up">
-              <div className="space-y-4">
-                <Badge className="bg-kerala text-white">
-                  <MapPin className="w-3 h-3 mr-1" />
-                  From the Spice Gardens of Kerala
-                </Badge>
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight">
-                  Where Every 
-                  <span className="spice-text"> Spice </span>
-                  Tells a 
-                  <span className="text-kerala"> Story</span>
-                </h1>
-                <p className="text-xl text-muted-foreground leading-relaxed">
-                  From the misty hills of Idukki to your kitchen, Erivu brings you the authentic taste of Kerala's 2000-year spice heritage. Every spice is GI-certified, ensuring you get nothing but the finest quality that made Kerala the spice capital of the world.
-                </p>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="group spice-gradient text-white">
-                  Explore Our Spices
-                  <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-                </Button>
-                <Button variant="outline" size="lg">
-                  Learn Our Story
-                </Button>
-              </div>
-              
-              <div className="flex items-center space-x-8 pt-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-kerala">15+</div>
-                  <div className="text-sm text-muted-foreground">Premium Spices</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-spice">100%</div>
-                  <div className="text-sm text-muted-foreground">GI Certified</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-gold">2000+</div>
-                  <div className="text-sm text-muted-foreground">Happy Customers</div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="relative">
-              <div className="floating-spice">
-                <div className="text-9xl mb-4">🌶️</div>
-              </div>
-              <div className="absolute top-4 right-4 floating-spice" style={{animationDelay: '2s'}}>
-                <div className="text-6xl">🌿</div>
-              </div>
-              <div className="absolute bottom-4 left-4 floating-spice" style={{animationDelay: '4s'}}>
-                <div className="text-7xl">⚫</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
+        {/* Decorative circles */}
+        <div className="absolute top-20 right-20 w-24 h-24 bg-yellow-200 rounded-full opacity-60"></div>
+        <div className="absolute top-40 right-40 w-16 h-16 bg-green-200 rounded-full opacity-60"></div>
+        <div className="absolute top-60 right-10 w-12 h-12 bg-pink-200 rounded-full opacity-60"></div>
 
-      {/* Features */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <div key={index} className="text-center space-y-4">
-                <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                  <feature.icon className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="font-semibold text-lg">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm">{feature.description}</p>
-              </div>
-            ))}
+        <div className="max-w-3xl">
+          {/* Badges */}
+          <div className="flex items-center space-x-4 mb-8">
+            <Badge className="bg-green-100 text-green-700 px-4 py-2">
+              <Shield className="w-4 h-4 mr-2" />
+              GI Tagged Authentic
+            </Badge>
+            <Badge className="bg-yellow-100 text-yellow-700 px-4 py-2">
+              <MapPin className="w-4 h-4 mr-2" />
+              Kerala, India
+            </Badge>
+          </div>
+
+          {/* Main heading */}
+          <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 mb-4 leading-tight">
+            Where Every Spice
+          </h1>
+          <h2 className="text-5xl md:text-6xl font-script font-bold text-red-500 mb-8 leading-tight">
+            Tells a Story
+          </h2>
+
+          {/* Description */}
+          <p className="text-xl text-gray-600 mb-4 max-w-2xl leading-relaxed">
+            Discover the authentic taste of Kerala with our premium collection of
+          </p>
+          <p className="text-xl mb-8 max-w-2xl leading-relaxed">
+            <span className="text-yellow-600 font-semibold">GI-tagged spices</span>
+            <span className="text-gray-600">, sourced directly from the monsoon-blessed Western Ghats.</span>
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-16">
+            <Button className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 text-lg">
+              <ShoppingCart className="w-5 h-5 mr-2" />
+              Explore Our Spices
+            </Button>
+            <Button variant="outline" className="px-8 py-3 text-lg border-gray-300">
+              <Play className="w-5 h-5 mr-2" />
+              Watch Our Story
+            </Button>
+          </div>
+
+          {/* Trust indicators */}
+          <div className="flex flex-col sm:flex-row gap-8 text-sm">
+            <div className="flex items-center">
+              <Shield className="w-5 h-5 text-green-500 mr-2" />
+              <span className="text-gray-600">GI Certified Quality</span>
+            </div>
+            <div className="flex items-center">
+              <span className="w-5 h-5 text-yellow-500 mr-2">📦</span>
+              <span className="text-gray-600">Free Shipping Over ₹999</span>
+            </div>
+            <div className="flex items-center">
+              <Users className="w-5 h-5 text-red-500 mr-2" />
+              <span className="text-gray-600">10,000+ Happy Customers</span>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Products Section */}
-      <section id="shop" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <Badge className="mb-4 bg-accent text-accent-foreground">
-              <Crown className="w-3 h-3 mr-1" />
-              Premium Collection
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-              Discover Kerala's 
-              <span className="spice-text">Finest Spices</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Each spice in our collection carries the story of Kerala's rich soil, traditional farming methods, and generations of expertise. GI certification guarantees authenticity.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {products.map((product, index) => (
-              <Card key={index} className="card-hover border-0 shadow-lg">
-                <CardHeader className="text-center">
-                  <div className="text-6xl mb-4">{product.image}</div>
-                  <Badge className="mb-2 w-fit mx-auto">{product.badge}</Badge>
-                  <CardTitle className="text-lg">{product.name}</CardTitle>
-                  <CardDescription>{product.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex items-center justify-center space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star 
-                        key={i} 
-                        className={`w-4 h-4 ${
-                          i < Math.floor(product.rating) 
-                            ? 'fill-yellow-400 text-yellow-400' 
-                            : 'text-gray-300'
-                        }`} 
-                      />
-                    ))}
-                    <span className="text-sm text-muted-foreground ml-2">{product.rating}</span>
-                  </div>
-                  
-                  <div className="text-center">
-                    <div className="flex items-center justify-center space-x-2">
-                      <span className="text-2xl font-bold text-primary">{product.price}</span>
-                      <span className="text-lg text-muted-foreground line-through">{product.originalPrice}</span>
-                    </div>
-                  </div>
-                  
-                  <Button className="w-full spice-gradient text-white">
-                    <ShoppingCart className="w-4 h-4 mr-2" />
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center mb-16">
+          <p className="text-gray-500 text-sm mb-4">Our Premium Collection</p>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">
+            GI Tagged <span className="text-red-500">Kerala Spices</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Each spice carries the essence of Kerala's rich soil and centuries of traditional cultivation
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {products.map((product) => (
+            <Card key={product.id} className="group cursor-pointer hover:shadow-lg transition-all duration-300 border-0 bg-white">
+              <div className="relative overflow-hidden rounded-t-lg">
+                <img 
+                  src={product.image} 
+                  alt={product.name}
+                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <Badge className={`absolute top-4 left-4 ${product.badgeColor} text-white`}>
+                  {product.badge}
+                </Badge>
+              </div>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{product.name}</h3>
+                <p className="text-gray-600 mb-4 leading-relaxed">{product.description}</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-2xl font-bold text-gray-900">{product.price}</span>
+                  <Button variant="outline" className="group">
+                    <Heart className="w-4 h-4 mr-2 group-hover:fill-current" />
                     Add to Cart
                   </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          
-          <div className="text-center mt-12">
-            <Button variant="outline" size="lg">
-              View All Spices
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-          </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
 
-      {/* Story Section */}
-      <section id="story" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <Badge className="bg-kerala text-white">
-                  <Heart className="w-3 h-3 mr-1" />
-                  Our Heritage
-                </Badge>
-                <h2 className="text-4xl md:text-5xl font-serif font-bold">
-                  A <span className="text-kerala">2000-Year</span> Journey of 
-                  <span className="spice-text">Flavor</span>
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  In the misty hills of Kerala, where the monsoons kiss the spice gardens and ancient trade routes once brought the world to India's shores, lies our story. Erivu isn't just a spice brand – we're the keepers of a tradition that shaped global cuisine.
-                </p>
+      {/* Heritage Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <Badge className="bg-pink-100 text-pink-700 px-4 py-2 mb-8">
+              Heritage & Tradition
+            </Badge>
+            
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-8 leading-tight">
+              From Ancient <span className="text-red-500 font-script">Spice Routes</span> to Your Kitchen
+            </h2>
+
+            <p className="text-xl text-gray-600 mb-12 leading-relaxed">
+              For centuries, Kerala has been the heart of the global spice trade. Our spices carry the legacy of monsoon-blessed soil, traditional farming wisdom, and the geographical uniqueness that makes them truly special.
+            </p>
+
+            <div className="space-y-8 mb-12">
+              <div className="flex items-start">
+                <div className="w-3 h-3 bg-red-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Monsoon Magic</h3>
+                  <p className="text-gray-600">Western Ghats' unique climate creates the perfect terroir for exceptional spices</p>
+                </div>
               </div>
               
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-2">Generational Expertise</h3>
-                    <p className="text-muted-foreground">Our partner farmers represent 5+ generations of spice cultivation knowledge, passed down through families who've made these hills their home.</p>
-                  </div>
+              <div className="flex items-start">
+                <div className="w-3 h-3 bg-green-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Generational Wisdom</h3>
+                  <p className="text-gray-600">Traditional cultivation methods passed down through farming families</p>
                 </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-2">Sacred Soil</h3>
-                    <p className="text-muted-foreground">Kerala's unique climate and mineral-rich soil create spices with distinctive flavors that can't be replicated anywhere else in the world.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-2">Modern Certification</h3>
-                    <p className="text-muted-foreground">Every spice carries GI (Geographical Indication) certification, ensuring you receive authentic Kerala spices with verified origin and quality.</p>
-                  </div>
+              </div>
+              
+              <div className="flex items-start">
+                <div className="w-3 h-3 bg-yellow-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">GI Tag Authenticity</h3>
+                  <p className="text-gray-600">Certified geographical indication ensures origin authenticity and quality</p>
                 </div>
               </div>
             </div>
-            
-            <div className="space-y-8">
-              <div className="text-8xl text-center">🏔️</div>
-              <Card className="p-6 border-0 shadow-lg">
-                <blockquote className="text-lg italic text-muted-foreground text-center">
-                  "When you open a jar of Erivu spices, you're not just adding flavor to your food – you're adding centuries of tradition, the essence of Kerala's soil, and the passion of farmers who treat every harvest as sacred."
-                </blockquote>
-                <div className="text-center mt-4">
-                  <div className="font-semibold">Ravi Menon</div>
-                  <div className="text-sm text-muted-foreground">Founder, Erivu</div>
-                </div>
-              </Card>
+
+            <Button className="bg-red-500 hover:bg-red-600 text-white px-8 py-3">
+              Discover Our Heritage →
+            </Button>
+          </div>
+
+          <div className="relative">
+            <img 
+              src="/kerala-plantation.jpg" 
+              alt="Traditional Kerala Spice Market"
+              className="w-full h-96 object-cover rounded-lg shadow-xl"
+            />
+            <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+              <span className="text-sm font-medium text-gray-900">Traditional Kerala Spice Market</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Quality Promise */}
-      <section id="quality" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <Badge className="mb-4 bg-secondary text-secondary-foreground">
-              <Shield className="w-3 h-3 mr-1" />
-              Quality Guarantee
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-              Our Promise of 
-              <span className="text-kerala">Authenticity</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Every Erivu spice undergoes rigorous quality checks and comes with GI certification. We don't just sell spices – we deliver trust, tradition, and taste.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="text-center p-8 border-0 shadow-lg card-hover">
-              <div className="text-6xl mb-6">🏆</div>
-              <h3 className="text-xl font-semibold mb-4">GI Certification</h3>
-              <p className="text-muted-foreground">
-                Geographical Indication certification ensures every spice is authentic and sourced from its traditional growing region in Kerala.
-              </p>
-            </Card>
-            
-            <Card className="text-center p-8 border-0 shadow-lg card-hover">
-              <div className="text-6xl mb-6">🔬</div>
-              <h3 className="text-xl font-semibold mb-4">Lab Tested</h3>
-              <p className="text-muted-foreground">
-                Each batch undergoes comprehensive testing for purity, potency, and absence of adulterants in certified laboratories.
-              </p>
-            </Card>
-            
-            <Card className="text-center p-8 border-0 shadow-lg card-hover">
-              <div className="text-6xl mb-6">📦</div>
-              <h3 className="text-xl font-semibold mb-4">Fresh Packaging</h3>
-              <p className="text-muted-foreground">
-                Vacuum-sealed, nitrogen-flushed packaging preserves freshness and aroma from our processing facility to your kitchen.
-              </p>
-            </Card>
-          </div>
+      {/* Why Erivu Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">
+            Why <span className="text-red-500 font-script">Erivu</span>?
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            More than just spices - we deliver authenticity, heritage, and the true taste of Kerala
+          </p>
         </div>
-      </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-              Connect with 
-              <span className="spice-text">Erivu</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Have questions about our spices? Want to know more about our story? We'd love to hear from you.
+        <div className="grid md:grid-cols-3 gap-8">
+          <Card className="text-center p-8 border-0 bg-red-50/50">
+            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Shield className="w-8 h-8 text-red-500" />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">GI Tag Certified</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Every spice comes with geographical indication certification, guaranteeing authenticity and origin.
             </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="text-center p-6 border-0 shadow-lg">
-              <Phone className="w-8 h-8 mx-auto mb-4 text-primary" />
-              <h3 className="font-semibold mb-2">Call Us</h3>
-              <p className="text-muted-foreground">+91 9876 543 210</p>
-            </Card>
-            
-            <Card className="text-center p-6 border-0 shadow-lg">
-              <Mail className="w-8 h-8 mx-auto mb-4 text-primary" />
-              <h3 className="font-semibold mb-2">Email Us</h3>
-              <p className="text-muted-foreground">hello@erivu.com</p>
-            </Card>
-            
-            <Card className="text-center p-6 border-0 shadow-lg">
-              <Instagram className="w-8 h-8 mx-auto mb-4 text-primary" />
-              <h3 className="font-semibold mb-2">Instagram</h3>
-              <p className="text-muted-foreground">@erivu_spices</p>
-            </Card>
-            
-            <Card className="text-center p-6 border-0 shadow-lg">
-              <Linkedin className="w-8 h-8 mx-auto mb-4 text-primary" />
-              <h3 className="font-semibold mb-2">LinkedIn</h3>
-              <p className="text-muted-foreground">erivu-authentic-spices</p>
-            </Card>
-          </div>
+          </Card>
+
+          <Card className="text-center p-8 border-0 bg-green-50/50">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Users className="w-8 h-8 text-green-500" />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Direct from Farmers</h3>
+            <p className="text-gray-600 leading-relaxed">
+              We work directly with traditional spice farmers, ensuring fair trade and the freshest quality.
+            </p>
+          </Card>
+
+          <Card className="text-center p-8 border-0 bg-yellow-50/50">
+            <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <HeartSolid className="w-8 h-8 text-yellow-500" />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Heritage Stories</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Each spice comes with its unique story, connecting you to Kerala's rich cultural heritage.
+            </p>
+          </Card>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 bg-background border-t">
-        <div className="container mx-auto px-4">
+      <footer className="bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid md:grid-cols-4 gap-8">
-            <div className="space-y-4">
-              <div className="text-2xl font-serif font-bold spice-text">Erivu</div>
-              <p className="text-muted-foreground">
-                Bringing you the authentic taste of Kerala's spice heritage since generations.
+            {/* Logo and description */}
+            <div className="md:col-span-1">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">E</span>
+                </div>
+                <span className="text-2xl font-serif font-bold">Erivu</span>
+              </div>
+              <p className="text-gray-400 mb-6 leading-relaxed">
+                Authentic Kerala spices with GI tag certification, bringing heritage and flavor to your kitchen.
               </p>
-              <div className="flex space-x-4">
-                <Instagram className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer" />
-                <Linkedin className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer" />
-              </div>
+              <Send className="w-5 h-5 text-gray-400" />
             </div>
-            
+
+            {/* Quick Links */}
             <div>
-              <h3 className="font-semibold mb-4">Shop</h3>
-              <div className="space-y-2 text-muted-foreground">
-                <div>All Spices</div>
-                <div>Best Sellers</div>
-                <div>Gift Sets</div>
-                <div>Bulk Orders</div>
-              </div>
+              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <ul className="space-y-3">
+                <li><a href="#" className="text-gray-400 hover:text-white">Our Spices</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white">Heritage Stories</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white">About Erivu</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white">Contact Us</a></li>
+              </ul>
             </div>
-            
+
+            {/* Support */}
             <div>
-              <h3 className="font-semibold mb-4">Learn</h3>
-              <div className="space-y-2 text-muted-foreground">
-                <div>Our Story</div>
-                <div>Spice Education</div>
-                <div>Recipes</div>
-                <div>Blog</div>
-              </div>
+              <h3 className="text-lg font-semibold mb-4">Support</h3>
+              <ul className="space-y-3">
+                <li><a href="#" className="text-gray-400 hover:text-white">Shipping Info</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white">Returns</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white">FAQ</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white">Customer Care</a></li>
+              </ul>
             </div>
-            
+
+            {/* Get in Touch */}
             <div>
-              <h3 className="font-semibold mb-4">Support</h3>
-              <div className="space-y-2 text-muted-foreground">
-                <div>Contact Us</div>
-                <div>Shipping Info</div>
-                <div>Returns</div>
-                <div>FAQs</div>
+              <h3 className="text-lg font-semibold mb-4">Get in Touch</h3>
+              <div className="space-y-3 text-gray-400">
+                <p>Kerala, India</p>
+                <p>hello@erivu.com</p>
+                <p>+91 98765 43210</p>
               </div>
             </div>
           </div>
-          
-          <div className="border-t mt-8 pt-8 text-center text-muted-foreground">
-            <p>© 2024 Erivu. All rights reserved. | GI Certified Authentic Kerala Spices</p>
+
+          <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 text-sm">
+              © 2024 Erivu. All rights reserved. Made with ❤️ in Kerala.
+            </p>
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              <a href="#" className="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
+              <a href="#" className="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+              <a href="#" className="text-gray-400 hover:text-white text-sm">GI Certification</a>
+            </div>
           </div>
         </div>
       </footer>
