@@ -88,26 +88,18 @@ export default function App() {
 
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative overflow-hidden">
-        {/* Split Background */}
-        <div className="absolute inset-0 flex">
-          {/* Left side - Solid color */}
-          <div 
-            className="w-1/2 h-full"
-            style={{ backgroundColor: '#F9F3EA' }}
-          ></div>
-          {/* Right side - Spice Image */}
-          <div 
-            className="w-1/2 h-full bg-cover bg-center bg-no-repeat opacity-10"
-            style={{
-              backgroundImage: `url('/spices-collection.webp')`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          ></div>
-        </div>
+        {/* Background Spice Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          style={{
+            backgroundImage: `url('/spices-collection.webp')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        ></div>
         
         {/* Gradient overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-orange-50/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-50/80 via-transparent to-orange-50/60"></div>
         
         {/* Decorative circles */}
         <div className="absolute top-20 right-20 w-24 h-24 bg-yellow-200/70 rounded-full opacity-60"></div>
