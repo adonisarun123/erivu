@@ -79,6 +79,13 @@
   --heritage-gold: #DAA520;
   --cream-white: #FFF8DC;
   --earth-brown: #8B4513;
+  
+  /* Warm Background Colors */
+  --cream-base: #FDF7F2;
+  --cream-light: #FBF3EC;
+  --cream-medium: #F9EFDC;
+  --cream-dark: #F7E6D3;
+  --warm-accent: #F5DCC4;
 }
 
 .dark {
@@ -386,4 +393,32 @@ img {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+}
+
+/* Spice-themed decorative elements */
+.spice-pattern {
+  background-image: 
+    radial-gradient(circle at 20px 80px, rgba(217, 119, 6, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80px 20px, rgba(239, 68, 68, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40px 40px, rgba(34, 197, 94, 0.1) 0%, transparent 50%);
+  background-size: 100px 100px;
+}
+
+/* Section dividers */
+.section-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(217, 119, 6, 0.3), transparent);
+  margin: 2rem 0;
+}
+
+/* Enhance button hover states */
+button:hover {
+  transition: all 0.2s ease;
+}
+
+/* Add subtle texture to cards */
+.textured-card {
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(217, 119, 6, 0.05) 1px, transparent 0);
+  background-size: 20px 20px;
 }
