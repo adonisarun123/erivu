@@ -92,7 +92,7 @@ export default function App() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
           style={{
-            backgroundImage: `url('/spices-collection.jpg')`,
+            backgroundImage: `url('/spices-collection.webp')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
