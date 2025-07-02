@@ -90,9 +90,9 @@ export default function App() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative overflow-hidden">
         {/* Background Spice Image */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
           style={{
-            backgroundImage: `url('/kerala-spices-1.jpg')`,
+            backgroundImage: `url('/spices-collection.jpg')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
